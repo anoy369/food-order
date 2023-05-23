@@ -7,6 +7,7 @@ import { FaUserFriends, FaWallet } from "react-icons/fa";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
+    const [delivery, setDelivery] = useState(true)
 
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
@@ -19,8 +20,8 @@ const Navbar = () => {
           Quality <span className="font-bold">Eats</span>
         </h1>
         <div className="hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px]">
-          <p className="bg-black text-white rounded-full p-2">Delivery</p>
-          <p className="p-2">Pickup</p>
+          <p onClick={()=> setDelivery(!delivery)} className={delivery == true ? 'bg-black text-white rounded-full p-2 duration-300 cursor-pointer' : 'p-2 duration-300 cursor-pointer'}>Delivery</p>
+          <p onClick={()=> setDelivery(!delivery)} className={delivery == true ? 'p-2 duration-300 cursor-pointer' : 'bg-black text-white rounded-full p-2 duration-300 cursor-pointer'}>Pickup</p>
         </div>
       </div>
 
@@ -48,8 +49,8 @@ const Navbar = () => {
       {/* side drawer menu */}
       <div className={nav ? 'fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
         <div className="flex items-center justify-between">
-          <AiOutlineClose
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         m 
+          <AiOutlineClose 
+            onClick={()=> setNav(!nav)}
             size={30}
             className="absolute right-4 top-4 cursor-pointer"
           />
